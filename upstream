@@ -1,0 +1,58 @@
+#! /bin/bash
+if [ ! -z "$1" ] && [ "$1" == "a" ];then
+    DoFor="Kernel"
+else
+    DoFor="Upstream"
+fi
+if [ ! -z "$2" ];then
+    TAGS="-rc"
+else
+    TAGS=""
+fi
+if [ ! -z "$3" ];then
+    fromTags="$3"
+else
+    fromTags="linux-4.4.y"
+fi
+upstreamStable(){
+    branch=$1
+    git checkout $branch && \
+    git pull . 20201215/main --no-ff --no-commit && git commit -s -m "Merge branch '20201215/main' into $branch"
+    git pull . lineage-17.1 --no-ff --no-commit && git commit -s -m "Merge branch 'lineage-17.1' into $branch"
+    git checkout 20201215/main
+}
+upstreamRc(){
+    branch=$1
+    git checkout $branch && git branch -D $branch$TAGS && git checkout -b $branch$TAGS && \
+    git pull . lineage-17.1-rc --no-ff --no-commit && git commit -s -m "Merge branch 'lineage-17.1-rc' into $branch"
+    git checkout 20201215/main
+}
+if [ "$DoFor" == "Kernel" ];then
+    for typeKernel in 20201215/Neutrino-L 20201215/Neutrino-N 20201215/Neutrino-uL
+    do
+        if [ "$TAGS" == "-rc" ];then
+            upstreamRc $typeKernel
+        else
+            upstreamStable $typeKernel
+        fi
+    done
+else
+    for typeBranch in lineage-17.1 lineage-17.1-p
+    do
+        git checkout $typeBranch
+        if [ "$TAGS" == "-rc" ];then
+            UpUrl="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git"
+            UpTags="$fromTags"
+            git branch -D $typeBranch$TAGS
+            git checkout -b $typeBranch$TAGS
+        else 
+            UpUrl="https://android.googlesource.com/kernel/common"
+            UpTags="android-4.4-p"
+        fi
+        git fetch $UpUrl $UpTags
+        git merge FETCH_HEAD --no-ff --no-commit
+        KVer=$(make kernelversion)
+        git commit -s -m "Merge tag '$KVer' of $UpUrl into $typeBranch"
+    done
+    git checkout 20201215/main
+fi
