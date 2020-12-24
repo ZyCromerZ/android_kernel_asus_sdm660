@@ -13,5 +13,5 @@
 # Notes
 * Stormbreaker = compiled using stormbreaker clang 11
 * if u used R kernels and got slower wifi speed, use Q kernel instead
-* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_sdm660/blob/changelogs/changelogs-info.MD">changelogs-info.md</a> to see all changelogs link for all builds
-* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_sdm660/blob/changelogs/changelogs-detail.MD">changelogs-detail.md</a> to see lastest changelogs
+* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_sdm660/blob/changelogs/changelogs-info.md">changelogs-info.md</a> to see all changelogs link for all builds
+* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_sdm660/blob/changelogs/changelogs-detail.md">changelogs-detail.md</a> to see lastest changelogs
