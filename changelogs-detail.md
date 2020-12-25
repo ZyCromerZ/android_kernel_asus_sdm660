@@ -1,12 +1,9 @@
-# 2020-12-24
-* based latest RK kernels
-* upstream to 4.4.249-rc1
-* supported spectrum (value not updated yet)
-* merge caf tags LA.UM.8.2.r1-07500-sdm660.0 to kernel
-* merge WLAN caf tags LA.UM.8.2.r1-07500-sdm660.0 for R and LA.UM.7.2.r1-09600-sdm660.0 for Q and P kernels
-* do something to 300Mhz to fix random reboots
-* add 633Mhz and 902Mhz to CPU Big Frequencies
-* and include many chages, lazy to type it
+# 2020-12-25
+* upstream f2fs
+* checkout binder from android-4.19-q common
+* arm64: add int128 support for clang and gcc
+* arm64: Implement lshrti3 library function
+* remove adreno 3xx and 4xx traces
 
 # Notes
 * random reboots still happened? then idk
