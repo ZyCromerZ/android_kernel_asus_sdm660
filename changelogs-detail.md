@@ -1,9 +1,9 @@
-# 2020-12-26
-* upstream f2fs
-* checkout binder from android-4.19-q common
-* arm64: add int128 support for clang and gcc
-* arm64: Implement lshrti3 library function
-* remove adreno 3xx and 4xx traces
+# 2020-12-31
+* upstream to 4.4.249
+* add exfat from https://github.com/arter97/exfat-linux
+* disable SDFAT FS
+* enable MSDOS FS VFAT FS EXFAT FS
+* force zram size to 3Gb and set lz4 as default 
 
 # Notes
 * random reboots still happened? then idk
