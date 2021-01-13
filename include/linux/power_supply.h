@@ -270,6 +270,7 @@ enum power_supply_property {
 #ifdef CONFIG_MACH_ASUS_SDM660
 	POWER_SUPPLY_PROP_ADAPTER_ID,
 #endif
+	POWER_SUPPLY_PROP_FG_RESET_CLOCK,
 	/* Local extensions of type int64_t */
 	POWER_SUPPLY_PROP_CHARGE_COUNTER_EXT,
 	/* Properties of type `const char *' */
