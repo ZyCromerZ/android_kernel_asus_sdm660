@@ -1,5 +1,4 @@
-# 2021-01-09
-* upstream to 4.4.250
-
-# Notes
-* when UV CPU? soon after im not lazy to count for it
+# 2021-02-07
+* re upstream to 4.4.256 from https://android.googlesource.com/kernel/common
+* upstream kernel caf tags to LA.UM.8.2.r2-04000-sdm660.0
+* fix build erorrs after upstream to 4.4.256
